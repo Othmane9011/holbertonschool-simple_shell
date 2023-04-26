@@ -15,22 +15,22 @@ char **split_env(char *path)
 
 	argv = malloc(path_size * sizeof(char *));
 
-	if (argv == NULL)
-	{
+		if (argv == NULL)
+		{
 		perror("Error : allocation memory");
 		return (0);
-	}
-	token = strtok(path, ":");
+		}
+		token = strtok(path, ":");
 
-	while (token != NULL)
-	{
+		while (token != NULL)
+		{
 		argv[index] = token;
 		index++;
 		token = strtok(NULL, ":");
-	}
-	argv[index] = NULL;
+		}
+		argv[index] = NULL;
 
-	return (argv);
+		return (argv);
 }
 
 /**
@@ -42,16 +42,16 @@ char **split_env(char *path)
 
 char *get_env(char *command)
 {
-	int index, size;
-	extern char **environ;
-	size = strlen(command);
+int index, size;
+extern char **environ;
+size = strlen(command);
 
-	for (index = 0; environ[index]; index++)
-	{
+		for (index = 0; environ[index]; index++)
+		{
 		if (strncmp(environ[index], command, size) == 0)
 			return (environ[index] + size + 1);
-	}
-	return (NULL);
+		}
+		return (NULL);
 }
 
 /**
@@ -60,15 +60,15 @@ char *get_env(char *command)
 
 void print_env(void)
 {
-	int index = 0;
-	int size = 0;
-	extern char **environ;
+int index = 0;
+int size = 0;
+extern char **environ;
 
-	while (environ[index] != NULL)
-	{
+		while (environ[index] != NULL)
+		{
 		size = strlen(environ[index]);
 		write(1, environ[index], size);
 		write(1, "\n", 1);
 		index++;
-	}
+		}
 }
