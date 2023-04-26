@@ -43,7 +43,7 @@ char **split_env(char *path)
 char *get_env(char *command)
 {
 	int index, size;
-	char **environ;
+	extern char **environ;
 		size = strlen(command);
 
 		for (index = 0; environ[index]; index++)
@@ -62,7 +62,7 @@ void print_env(void)
 {
 	int index = 0;
 	int size = 0;
-	char **environ;
+	extern char **environ;
 
 		while (environ[index] != NULL)
 		{
