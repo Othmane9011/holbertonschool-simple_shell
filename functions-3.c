@@ -53,7 +53,7 @@ int exec(char **args)
 
 	if (my_pid == -1)
 		perror("Error : fork");
-	  
+
 	if (my_pid == 0)
 	{
 		if (command[0] == '/' || command[0] == '.')
